@@ -1,6 +1,6 @@
 # The Solution — Instagram week 1
 
-Posting time: 19:30 UK time (owners scroll after service). One post per day.
+Posting time: 15:00 UK time from 4 Oct (the lull between lunch and dinner; Days 1–3 went out at other times). One post + Story per day.
 
 | Day | Date | Post | Files |
 | --- | --- | --- | --- |
