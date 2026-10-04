@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bar Hashery Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Allison&display=swap">
+<style>
+  /* Layout: a chalk-black menu board. Logo illustration + giant "MENU" header,
+     then a three-column board of sections, a gold "Big Cup" band, combos, footer. */
+  :root {
+    --board: #0b0b0a;        /* page ground, the logo's black */
+    --panel: #151513;        /* raised section ground */
+    --chalk: #f4f1ea;        /* main text, the logo's white line art */
+    --chalk-dim: #a9a49a;    /* descriptions */
+    --line: #2c2a26;         /* rules and leaders */
+    --gold: #c9a876;         /* the booking page accent */
+    --gold-ink: #17130c;     /* text on gold */
+
+    --f-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+    --f-body: "Courier Prime", "Courier New", ui-monospace, monospace;
+    --f-script: "Allison", "Brush Script MT", cursive;
+
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--board);
+    color: var(--chalk);
+    font-family: var(--f-body);
+    font-size: 15px;
+    line-height: 1.45;
+    padding-inline: 16px;
+    padding-block: 0 48px;
+  }
+  .sheet { max-width: 1180px; margin: 0 auto; }
+
+  /* ---------- Header ---------- */
+  .masthead {
+    display: grid;
+    grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+    gap: 32px;
+    align-items: center;
+    padding-block: 32px 24px;
+    border-bottom: 2px solid var(--chalk);
+  }
+  .masthead img { width: 100%; max-width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+  .masthead-copy { min-width: 0; }
+  .eyebrow {
+    font-family: var(--f-body);
+    font-size: 13px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0;
+  }
+  .masthead h1 {
+    font-family: var(--f-display);
+    font-weight: 900;
+    font-size: clamp(88px, 16vw, 200px);
+    line-height: 0.82;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    margin: 10px 0 0;
+  }
+  .masthead h1 .script {
+    display: block;
+    font-family: var(--f-script);
+    font-weight: 400;
+    text-transform: none;
+    font-size: 0.42em;
+    line-height: 1;
+    color: var(--gold);
+    letter-spacing: 0;
+    margin: 0 0 -0.08em 0.1em;
+  }
+  .masthead .lede { max-width: 46ch; color: var(--chalk-dim); margin: 18px 0 0; }
+  .facts {
+    display: flex; flex-wrap: wrap; gap: 8px 24px;
+    margin: 20px 0 0; padding: 0; list-style: none;
+    font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em;
+  }
+  .facts b { color: var(--gold); font-weight: 700; }
+
+  /* ---------- Legend ---------- */
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center;
+    padding-block: 14px; border-bottom: 1px solid var(--line);
+    font-size: 12px; color: var(--chalk-dim); text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .legend span { display: inline-flex; gap: 6px; align-items: center; }
+
+  /* ---------- Board ---------- */
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 40px;
+    padding-block: 28px 8px;
+  }
+  .col { display: flex; flex-direction: column; gap: 36px; min-width: 0; }
+  .col section h2 {
+    font-family: var(--f-display);
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 0.95;
+    text-transform: uppercase;
+    margin: 0;
+    display: flex; align-items: baseline; gap: 10px;
+    text-wrap: balance;
+  }
+  .col section h2 .no {
+    font-family: var(--f-body); font-size: 13px; font-weight: 700;
+    color: var(--gold); letter-spacing: 0.1em;
+  }
+  .col section .sub {
+    font-family: var(--f-script); font-size: 30px; line-height: 1;
+    color: var(--gold); margin: 2px 0 12px;
+  }
+  .items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+  .item-head { display: flex; align-items: baseline; gap: 8px; }
+  .item-name {
+    font-family: var(--f-display); font-weight: 700; font-size: 21px;
+    text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.05;
+  }
+  .leader { flex: 1; border-bottom: 2px dotted var(--line); transform: translateY(-4px); min-width: 16px; }
+  .price {
+    font-family: var(--f-body); font-weight: 700; font-size: 16px;
+    font-variant-numeric: tabular-nums; color: var(--chalk);
+  }
+  .desc { color: var(--chalk-dim); font-size: 13.5px; margin: 3px 0 0; }
+  .tag {
+    display: inline-block; font-family: var(--f-body); font-size: 10.5px; font-weight: 700;
+    border: 1px solid currentColor; border-radius: 2px; padding: 0 4px; line-height: 1.5;
+    color: var(--chalk-dim); vertical-align: 2px; margin-left: 4px; letter-spacing: 0.04em;
+  }
+  .sig {
+    display: inline-block; font-family: var(--f-body); font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    background: var(--gold); color: var(--gold-ink);
+    padding: 1px 6px; transform: rotate(-3deg); margin-left: 6px; vertical-align: 3px;
+  }
+  .note { font-size: 12.5px; color: var(--chalk-dim); border-top: 1px solid var(--line); padding-top: 10px; margin: 14px 0 0; }
+
+  /* ---------- Big Cup band ---------- */
+  .bigcup {
+    margin-block: 36px 0;
+    background: var(--gold); color: var(--gold-ink);
+    display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 24px; align-items: center;
+    padding: 28px 32px;
+  }
+  .bigcup h2 {
+    font-family: var(--f-display); font-weight: 900; text-transform: uppercase;
+    font-size: clamp(44px, 7vw, 80px); line-height: 0.85; margin: 0;
+  }
+  .bigcup h2 em { font-family: var(--f-script); font-style: normal; font-weight: 400; text-transform: none; font-size: 0.6em; display: block; line-height: 1; }
+  .bigcup p { margin: 10px 0 0; max-width: 44ch; }
+  .sizes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border: 2px solid var(--gold-ink); }
+  .sizes > div { padding: 12px 8px; text-align: center; }
+  .sizes > div + div { border-left: 2px solid var(--gold-ink); }
+  .sizes .ml { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .sizes .sz { font-family: var(--f-display); font-weight: 900; font-size: clamp(20px, 2.6vw, 30px); overflow-wrap: anywhere; line-height: 1; text-transform: uppercase; }
+  .sizes .pr { font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  /* ---------- Combos ---------- */
+  .combos-wrap { padding-block: 36px 0; }
+  .combos-wrap > h2 {
+    font-family: var(--f-display); font-weight: 900; font-size: 40px; text-transform: uppercase;
+    margin: 0; display: flex; align-items: baseline; gap: 10px;
+  }
+  .combos-wrap > h2 .no { font-family: var(--f-body); font-size: 13px; color: var(--gold); letter-spacing: 0.1em; }
+  .combos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 14px; }
+  .combo { border: 1px solid var(--chalk); padding: 18px 18px 16px; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+  .combo .item-head { justify-content: space-between; }
+  .combo .item-name { font-size: 26px; }
+  .combo .price { font-size: 20px; color: var(--gold); }
+  .combo ul { margin: 4px 0 0; padding: 0 0 0 1.1em; color: var(--chalk-dim); font-size: 13.5px; }
+
+  /* ---------- Footer ---------- */
+  .foot {
+    margin-top: 40px; padding-top: 18px; border-top: 2px solid var(--chalk);
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; align-items: end;
+  }
+  .foot .tagline { font-family: var(--f-body); font-size: 34px; letter-spacing: 0.3em; line-height: 1.05; text-transform: lowercase; margin: 0; }
+  .foot p { margin: 0; font-size: 12.5px; color: var(--chalk-dim); max-width: 60ch; }
+  .book {
+    display: inline-block; font-family: var(--f-display); font-weight: 900; font-size: 22px;
+    text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none;
+    color: var(--gold-ink); background: var(--gold); padding: 10px 18px;
+  }
+  .book:hover { background: var(--chalk); }
+  .book:focus-visible { outline: 2px solid var(--chalk); outline-offset: 3px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 960px) {
+    .board { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .col:nth-child(3) { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 40px; margin-top: 36px; }
+    .combos { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 680px) {
+    .masthead { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+    .masthead img { max-width: 260px; }
+    .board, .col:nth-child(3) { grid-template-columns: minmax(0, 1fr); }
+    .col + .col { margin-top: 36px; }
+    .bigcup { grid-template-columns: minmax(0, 1fr); padding: 22px 18px; }
+    .foot .tagline { font-size: 26px; }
+  }
+
+  /* ---------- Print (A3 portrait, black board kept) ---------- */
+  @media print {
+    @page { size: A3 portrait; margin: 10mm; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 0; }
+    .book { display: none; }
+    section, .combo, .bigcup { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<main class="sheet">
+  <header class="masthead">
+    <img src="logo.jpg" alt="Bar Hashery logo: a person carrying a giant coffee cup while waffles, croissants and cake tumble in">
+    <div class="masthead-copy">
+      <p class="eyebrow">Brunch · Bakery · Coffee</p>
+      <h1><span class="script">Bar Hashery</span>Menu</h1>
+      <p class="lede">Crispy hashes, waffles straight off the iron, croissants baked every morning and coffee in cup sizes that make sense to us. Order at the bar and we'll bring it over.</p>
+      <ul class="facts">
+        <li><b>Kitchen</b> 08:00 – 15:00</li>
+        <li><b>Bakery &amp; coffee</b> until close</li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="legend" aria-label="Menu key">
+    <span><i class="tag">V</i> Vegetarian</span>
+    <span><i class="tag">VG</i> Vegan</span>
+    <span><i class="tag">GF</i> Gluten-free</span>
+    <span><i class="sig">Signature</i> House favourite</span>
+  </div>
+
+  <div class="board">
+    <div class="col">
+      <section>
+        <h2><span class="no">01</span>Hash It Out</h2>
+        <p class="sub">the reason for the name</p>
+        <ul class="items">
+          <li><div class="item-head"><span class="item-name">The Hashery Classic<span class="sig">Signature</span></span><span class="leader"></span><span class="price">9.50</span></div>
+            <p class="desc">Crispy potato hash, two fried eggs, smoked paprika butter, toasted sourdough.</p></li>
+          <li><div class="item-head"><span class="item-name">Never Enough Hash</span><span class="leader"></span><span class="price">13.90</span></div>
+            <p class="desc">Everything at once: bacon, chorizo, mushrooms, cheddar, two eggs, hollandaise.</p></li>
+          <li><div class="item-head"><span class="item-name">Green Machine<span class="tag">V</span><span class="tag">GF</span></span><span class="leader"></span><span class="price">10.50</span></div>
+            <p class="desc">Potato and courgette hash, spinach, feta, poached egg, herb oil.</p></li>
+          <li><div class="item-head"><span class="item-name">Salmon Situation<span class="tag">GF</span></span><span class="leader"></span><span class="price">12.90</span></div>
+            <p class="desc">Hot-smoked salmon, dill crème fraîche, pickled onion, poached egg.</p></li>
+        </ul>
+        <p class="note">Swap eggs for tofu scramble <span class="tag">VG</span> at no extra cost.</p>
+      </section>
+
+      <section>
+        <h2><span class="no">02</span>Toast &amp; Stack</h2>
+        <p class="sub">between two slices</p>
+        <ul class="items">
+          <li><div class="item-head"><span class="item-name">Avo Business<span class="tag">VG</span></span><span class="leader"></span><span class="price">8.90</span></div>
+            <p class="desc">Smashed avocado, chilli, lime, seeds on sourdough. Add an egg +1.50.</p></li>
+          <li><div class="item-head"><span class="item-name">The Big Club</span><span class="leader"></span><span class="price">11.50</span></div>
+            <p class="desc">Triple-decker with roast chicken, bacon, tomato, lettuce, garlic mayo. Fries on the side.</p></li>
+          <li><div class="item-head"><span class="item-name">Cheesy Does It<span class="tag">V</span></span><span class="leader"></span><span class="price">7.90</span></div>
+            <p class="desc">Three-cheese toastie, caramelised onion, a pickle for balance.</p></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="col">
+      <section>
+        <h2><span class="no">03</span>Waffle Department</h2>
+        <p class="sub">pressed to order</p>
+        <ul class="items">
+          <li><div class="item-head"><span class="item-name">Plain Jane<span class="tag">V</span></span><span class="leader"></span><span class="price">6.50</span></div>
+            <p class="desc">Golden waffle, salted butter, maple syrup. Simple and correct.</p></li>
+          <li><div class="item-head"><span class="item-name">Berry Riot<span class="sig">Signature</span></span><span class="leader"></span><span class="price">9.20</span></div>
+            <p class="desc">Mixed berries, vanilla mascarpone, white chocolate crumb, berry coulis.</p></li>
+          <li><div class="item-head"><span class="item-name">Salted Caramel Crash<span class="tag">V</span></span><span class="leader"></span><span class="price">9.50</span></div>
+            <p class="desc">Banana, salted caramel, crushed hazelnuts, a scoop of ice cream.</p></li>
+          <li><div class="item-head"><span class="item-name">Chicken &amp; Waffle</span><span class="leader"></span><span class="price">12.50</span></div>
+            <p class="desc">Buttermilk fried chicken, hot honey, pickled jalapeño, chive cream.</p></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="no">04</span>The Bakery Shelf</h2>
+        <p class="sub">baked here every morning</p>
+        <ul class="items">
+          <li><div class="item-head"><span class="item-name">Butter Croissant<span class="tag">V</span></span><span class="leader"></span><span class="price">2.80</span></div>
+            <p class="desc">Laminated with real butter. Flaky, loud, worth the crumbs.</p></li>
+          <li><div class="item-head"><span class="item-name">Pain au Chocolat<span class="tag">V</span></span><span class="leader"></span><span class="price">3.20</span></div></li>
+          <li><div class="item-head"><span class="item-name">Ham &amp; Cheese Croissant</span><span class="leader"></span><span class="price">4.90</span></div>
+            <p class="desc">Warmed through, with Dijon and gruyère.</p></li>
+          <li><div class="item-head"><span class="item-name">Cinnamon Swirl<span class="tag">V</span></span><span class="leader"></span><span class="price">3.40</span></div></li>
+          <li><div class="item-head"><span class="item-name">Cake of the Day<span class="tag">V</span></span><span class="leader"></span><span class="price">4.50</span></div>
+            <p class="desc">Ask at the bar, or just look at the counter.</p></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="col">
+      <section>
+        <h2><span class="no">05</span>Coffee</h2>
+        <p class="sub">house espresso blend</p>
+        <ul class="items">
+          <li><div class="item-head"><span class="item-name">Espresso</span><span class="leader"></span><span class="price">2.20</span></div></li>
+          <li><div class="item-head"><span class="item-name">Americano</span><span class="leader"></span><span class="price">2.80</span></div></li>
+          <li><div class="item-head"><span class="item-name">Flat White</span><span class="leader"></span><span class="price">3.40</span></div></li>
+          <li><div class="item-head"><span class="item-name">Cappuccino</span><span class="leader"></span><span class="price">3.40</span></div></li>
+          <li><div class="item-head"><span class="item-name">Caffè Latte</span><span class="leader"></span><span class="price">3.60</span></div></li>
+          <li><div class="item-head"><span class="item-name">Mocha</span><span class="leader"></span><span class="price">3.90</span></div></li>
+          <li><div class="item-head"><span class="item-name">Iced Latte</span><span class="leader"></span><span class="price">3.90</span></div></li>
+          <li><div class="item-head"><span class="item-name">Espresso Tonic</span><span class="leader"></span><span class="price">4.20</span></div>
+            <p class="desc">Double shot over tonic, orange peel.</p></li>
+        </ul>
+        <p class="note">Oat or almond milk +0.50 · Extra shot +0.70 · Vanilla, caramel or hazelnut syrup +0.50</p>
+      </section>
+
+      <section>
+        <h2><span class="no">06</span>Not Coffee</h2>
+        <p class="sub">for the other half of the table</p>
+        <ul class="items">
+          <li><div class="item-head"><span class="item-name">Matcha Latte</span><span class="leader"></span><span class="price">4.20</span></div></li>
+          <li><div class="item-head"><span class="item-name">Spiced Chai Latte</span><span class="leader"></span><span class="price">3.90</span></div></li>
+          <li><div class="item-head"><span class="item-name">Proper Hot Chocolate</span><span class="leader"></span><span class="price">3.90</span></div>
+            <p class="desc">Melted dark chocolate, whipped cream on request.</p></li>
+          <li><div class="item-head"><span class="item-name">Fresh Orange Juice</span><span class="leader"></span><span class="price">4.50</span></div></li>
+          <li><div class="item-head"><span class="item-name">Leaf Tea</span><span class="leader"></span><span class="price">2.80</span></div>
+            <p class="desc">English breakfast, Earl Grey, green, mint.</p></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <section class="bigcup" aria-labelledby="bigcup-title">
+    <div>
+      <h2 id="bigcup-title"><em>the one from the logo</em>Big Cup Energy</h2>
+      <p>Our house latte with a double shot in a cup you'll need two hands for. Pick a size, add a syrup, and settle in.</p>
+    </div>
+    <div class="sizes">
+      <div><div class="ml">300 ml</div><div class="sz">Big</div><div class="pr">4.20</div></div>
+      <div><div class="ml">450 ml</div><div class="sz">Bigger</div><div class="pr">5.20</div></div>
+      <div><div class="ml">600 ml</div><div class="sz">Never Enough</div><div class="pr">6.20</div></div>
+    </div>
+  </section>
+
+  <div class="combos-wrap">
+    <h2><span class="no">07</span>Brunch Deals</h2>
+    <div class="combos">
+      <article class="combo">
+        <div class="item-head"><span class="item-name">Quick Fix</span><span class="price">6.50</span></div>
+        <ul><li>Any croissant</li><li>Any regular coffee</li></ul>
+      </article>
+      <article class="combo">
+        <div class="item-head"><span class="item-name">Full Hashery</span><span class="price">15.90</span></div>
+        <ul><li>Any hash or waffle</li><li>Any coffee or tea</li><li>Fresh orange juice</li></ul>
+      </article>
+      <article class="combo">
+        <div class="item-head"><span class="item-name">Brunch for Two</span><span class="price">32.00</span></div>
+        <ul><li>Two hashes or waffles</li><li>Two Big Cups</li><li>One cake of the day to share</li></ul>
+      </article>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <div>
+      <p class="tagline">never<br>enough</p>
+    </div>
+    <p>Tell us about allergies before you order and we'll walk you through every dish. Our kitchen handles gluten, dairy, eggs, nuts and sesame, so we can't promise any dish is completely free of traces.</p>
+    <a class="book" href="/">Book a table</a>
+  </footer>
+</main>
+</body>
+</html>
