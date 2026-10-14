@@ -183,3 +183,97 @@ Fed up with four logins and Sunday nights on admin, we built our own system: til
 Now it's open to every café. Link in bio.
 
 #buildinpublic #hospitalitytech #cafeowner #AI #lovable #restaurantowner #hospitalityuk
+
+---
+
+# Week 3
+
+Based on weeks 1–2: practical "save this" carousels and Reels showing one specific thing the AI does got the most likes, so week 3 leans that way (4 carousels, 3 Reels).
+
+| Day | Date | Post | Files |
+| --- | --- | --- | --- |
+| 15 | Thu 15 Oct | Carousel: 5 numbers to check every week | `carousels/07-five-numbers-01…07.jpg` |
+| 16 | Fri 16 Oct | Reel: What should we put on special? | `reels/reel-09-whats-on-special.mp4` |
+| 17 | Sat 17 Oct | Carousel: The UK café VAT cheat sheet | `carousels/08-vat-cheat-sheet-01…06.jpg` |
+| 18 | Sun 18 Oct | Reel: Your week in 30 seconds | `reels/reel-10-week-in-30-seconds.mp4` |
+| 19 | Mon 19 Oct | Carousel: How to set prep pars | `carousels/09-prep-pars-01…06.jpg` |
+| 20 | Tue 20 Oct | Reel: The stock order writes itself | `reels/reel-11-stock-order-writes-itself.mp4` |
+| 21 | Wed 21 Oct | Carousel: 5 myths about AI in your café | `carousels/10-ai-myths-01…07.jpg` |
+
+## Day 15 — Carousel: 5 numbers to check every week
+
+5 numbers every café owner should check every week. 📊
+
+1. Food cost %
+2. Labour %
+3. GP per dish
+4. Waste in £
+5. Average spend
+
+Ten minutes on a Monday, fewer surprises at month end. Save this, or let The Solution track all five live: link in bio.
+
+#cafeowner #restaurantowner #hospitalityuk #foodcost #labourcosts #coffeeshopowner #smallbusinessuk #cafebusiness
+
+## Day 16 — Reel: What should we put on special?
+
+I asked my AI what to put on special this week. 🧀
+
+It found halloumi close to its use-by, worked out the GP on a wrap, and added it to tomorrow's prep list. Specials that clear stock, not margin.
+
+Link in bio. £60/month, everything included.
+
+#cafeowner #kitchenlife #foodwaste #menucosting #hospitalityuk #AI #specials
+
+## Day 17 — Carousel: The UK café VAT cheat sheet
+
+Eat in or take away? Save this VAT cheat sheet. 🧾
+
+Eating in: 20% on everything. Hot takeaway food and drinks: 20%. Most cold takeaway food: 0%, but crisps, sweets, soft drinks, bottled water and ice cream are 20%.
+
+Rules have exceptions, so check HMRC VAT Notice 709/1 or your accountant. In The Solution you set eat-in and takeaway rates per item and the till applies the right one. Link in bio.
+
+#VAT #cafeowner #hospitalityuk #smallbusinessuk #coffeeshopowner #takeaway #restaurantowner #cafebusiness
+
+## Day 18 — Reel: Your week in 30 seconds
+
+Monday, 7am. Your whole week, already read. ☕
+
+Sales, GP, labour, waste and your top dish in one screen, plus what the AI changed in next week's rota because of it. You just approve.
+
+Link in bio.
+
+#cafeowner #restaurantowner #hospitalityuk #AI #labourcosts #cafelife #smallbusinessuk
+
+## Day 19 — Carousel: How to set prep pars
+
+Over-prepping is waste you paid for twice. 🔪
+
+How to set prep pars:
+1. Know what you sell, by day of the week
+2. Adjust for tomorrow (weather, events, bookings)
+3. Forecast + 10% buffer − what's already prepped
+4. Never prep past shelf life
+
+Save this for your kitchen team. Or let The Solution build tomorrow's prep list from the forecast: link in bio.
+
+#kitchenlife #chefsofinstagram #foodwaste #cafeowner #restaurantowner #hospitalityuk #prep
+
+## Day 20 — Reel: The stock order writes itself
+
+The stock order writes itself. 📦
+
+Every sale updates your stock, the weekend forecast is built in, and Thursday's order is drafted before you open the fridge. You just check and approve.
+
+Link in bio. £60/month, everything included.
+
+#stockcontrol #cafeowner #kitchenlife #restaurantowner #hospitalityuk #AI #smallbusinessuk
+
+## Day 21 — Carousel: 5 myths about AI in your café
+
+5 myths about AI in your café. Which one did you believe? 👇
+
+It won't replace your team, it isn't only for big chains, and nothing happens until you approve it. It's connected to your till, stock and rota, so answers use your real numbers.
+
+Built by a hospitality operator, tested in real cafés. 7-day trial, link in bio.
+
+#AI #hospitalitytech #cafeowner #restaurantowner #hospitalityuk #smallbusinessuk #coffeeshopowner
